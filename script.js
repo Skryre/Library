@@ -1,4 +1,6 @@
 const button = document.querySelector('button');
+const checkbox = document.querySelector("input[type='checkbox']");
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -12,6 +14,10 @@ function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     return myLibrary.push(book);
 }
+
+checkbox.addEventListener("change",function(){
+  this.value = this.checked ? "checked" : "unchecked";
+})
 
 button.addEventListener(`click`, (e)=> {
   e.preventDefault()
