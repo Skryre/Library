@@ -11,6 +11,26 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="right"></div>
+        <form>
+            <p>Let's do this!</p>
+            <div class="input">
+                <label for="title">Title Name</label>
+                <input id="title" type="text" maxlength="24" required placeholder="..."/>
+            </div>
+            <div class="input">
+                <label for="author">Author Name</label>
+                <input id="author" type="text" maxlength="24" required placeholder="..."/>
+            </div>
+            <div class="input">
+                <label for="number">Number of Page</label>
+                <input id="number" type="text" maxlength="5" placeholder="Optional"/ pattern="[0-9]+">
+            </div>
+            <button type="submit">Create Book</button>
+        </form>
+    </div>
+    <div class="left">
+        
+    </div>
 </body>
 </html>
