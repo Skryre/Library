@@ -1,13 +1,27 @@
+const button = document.querySelector('button');
 let myLibrary = [];
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read = read;
 }
 
-function addBookToLibrary() {
-    const book = new Book(title, author, pages);
-    return myLibrary.push(book)
+function addBookToLibrary(title, author, pages, read) {
+    const book = new Book(title, author, pages, read);
+    return myLibrary.push(book);
 }
+
+button.addEventListener(`click`, (e)=> {
+  e.preventDefault()
+  let title = document.getElementById("title").value;
+  let author = document.getElementById("author").value;
+  let pages = document.getElementById("pages").value;
+  let read = document.getElementById("read").value;
+  if (title === "" || author === "") {return}
+  addBookToLibrary(title, author, pages, read)
+  console.log(myLibrary)
+})
+
 
