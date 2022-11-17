@@ -1,0 +1,19 @@
+body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    color: whitesmoke;
+    background-color: rgba(9, 14, 17);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.right {
+    width: 35%;
+    height: 100vh;
+}
+
+.left {
+    width: 65%;
+    height: 100vh;
+}
