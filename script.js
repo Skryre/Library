@@ -1,5 +1,6 @@
-const button = document.querySelector('button');
+const button = document.querySelector(".add");
 const checkbox = document.querySelector("input[type='checkbox']");
+const container = document.querySelector(".container")
 
 let myLibrary = [];
 
@@ -16,18 +17,53 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 checkbox.addEventListener("change",function(){
-  this.value = this.checked ? "checked" : "unchecked";
+  this.value = this.checked ? "finished" : "unfinished";
 })
 
 button.addEventListener(`click`, (e)=> {
-  e.preventDefault()
+  e.preventDefault();
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
   let read = document.getElementById("read").value;
-  if (title === "" || author === "") {return}
-  addBookToLibrary(title, author, pages, read)
-  console.log(myLibrary)
+  if (title === "" || author === "") {return};
+  if (pages === ""){ pages === 0}
+  addBookToLibrary(title, author, pages, read);
+  showLibrary ()
 })
 
+function showLibrary () {
+  container.innerHTML = "";
+  for (let i = 0; i < myLibrary.length; i += 1){
 
+    const newbook = document.createElement("div");
+    const bookButton = document.createElement("button");
+    const changeStatus = document.createElement("button");
+
+    bookButton.classList.add("delete");
+    bookButton.dataset.library = i;
+
+    changeStatus.classList.add("change");
+    changeStatus.dataset.library = i;
+
+    newbook.classList.add("books");
+    container.appendChild(newbook);
+    newbook.innerHTML = "Book title : "+myLibrary[i].title+"<br />"+"Author name : "+myLibrary[i].author+"<br />"+"Number of pages : "+myLibrary[i].pages+"<br />"+myLibrary[i].read;
+
+    newbook.appendChild(changeStatus);
+    changeStatus.innerHTML = "Change status";
+    changeStatus.addEventListener(`click`, (e)=> {
+      console.log(e.target.dataset.library)
+    })
+
+    newbook.appendChild(bookButton);
+    bookButton.innerHTML = "Delete book";
+    bookButton.addEventListener(`click`, (e)=> {
+      let thing = e.target.dataset.library
+      myLibrary.splice(thing, 1)
+      console.log(e.target.dataset.library)
+      console.log(myLibrary)
+      showLibrary ()
+    })    
+  }
+}

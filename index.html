@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"/>
-    <title>LibraryApp</title>
+    <title>Library App</title>
     <link rel="icon" type="image/x-icon" href="paranthesis.png"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="right">
@@ -27,14 +26,16 @@
                 <input id="pages" type="text" maxlength="5" placeholder="Optional"/ pattern="[0-9]+">
             </div>
             <div class="input">
-                <label for="read">Check if you finished it</label>
-                <input id="read" type="checkbox">
+                <label for="read">Check if you finished</label>
+                <input id="read" type="checkbox" value="unfinished">
             </div>
-            <button type="submit">Create Book</button>
+            <button class="add" type="submit">Create Book</button>
         </form>
     </div>
     <div class="left">
-        bla bla
+        <div class="container">
+        </div>
     </div>
 </body>
+<script src="script.js" defer></script>
 </html>
