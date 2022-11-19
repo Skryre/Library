@@ -53,16 +53,20 @@ function showLibrary () {
     newbook.appendChild(changeStatus);
     changeStatus.innerHTML = "Change status";
     changeStatus.addEventListener(`click`, (e)=> {
-      console.log(e.target.dataset.library)
+      let index = e.target.dataset.library;
+      myLibrary[index].read = "finished" ? "unfinished" : "finished";
+      console.log(e.target.dataset.library);
+      console.log(myLibrary);
+      showLibrary ()
     })
 
     newbook.appendChild(bookButton);
     bookButton.innerHTML = "Delete book";
     bookButton.addEventListener(`click`, (e)=> {
-      let thing = e.target.dataset.library
-      myLibrary.splice(thing, 1)
-      console.log(e.target.dataset.library)
-      console.log(myLibrary)
+      let index = e.target.dataset.library;
+      myLibrary.splice(index, 1);
+      console.log(e.target.dataset.library);
+      console.log(myLibrary);
       showLibrary ()
     })    
   }
