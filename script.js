@@ -54,9 +54,7 @@ function showLibrary () {
     changeStatus.innerHTML = "Change status";
     changeStatus.addEventListener(`click`, (e)=> {
       let index = e.target.dataset.library;
-      myLibrary[index].read = "finished" ? "unfinished" : "finished";
-      console.log(e.target.dataset.library);
-      console.log(myLibrary);
+      myLibrary[index].read === 'unfinished' ? myLibrary[index].read = 'finished' : myLibrary[index].read = 'unfinished';
       showLibrary ()
     })
 
@@ -65,8 +63,6 @@ function showLibrary () {
     bookButton.addEventListener(`click`, (e)=> {
       let index = e.target.dataset.library;
       myLibrary.splice(index, 1);
-      console.log(e.target.dataset.library);
-      console.log(myLibrary);
       showLibrary ()
     })    
   }
