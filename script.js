@@ -4,11 +4,13 @@ const container = document.querySelector(".container")
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -53,10 +55,10 @@ function showLibrary () {
     newbook.appendChild(changeStatus);
     changeStatus.innerHTML = "Change status";
     changeStatus.addEventListener(`click`, (e)=> {
-      let book = myLibrary[index]
-      book.read = book.read === 'unfinished' ? 'finished' : 'unfinished'
-      //let index = e.target.dataset.library;
-      //myLibrary[index].read === 'unfinished' ? myLibrary[index].read = 'finished' : myLibrary[index].read = 'unfinished';
+      // let book = myLibrary[index]
+      // book.read = book.read === 'unfinished' ? 'finished' : 'unfinished'
+      let index = e.target.dataset.library;
+      myLibrary[index].read === 'unfinished' ? myLibrary[index].read = 'finished' : myLibrary[index].read = 'unfinished';
       showLibrary ()
     })
 
