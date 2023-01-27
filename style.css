@@ -1,56 +1,148 @@
+:root.light {
+    --color: #f2f3f5;
+    --text: rgb(9,14,17);
+    --red: rgb(237, 57, 60);
+}
+
+:root.dark {
+    --color: rgb(9,14,17);
+    --text: #f2f3f5;
+    --red: rgb(237, 57, 60);
+}
+
 body {
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: var(--color);
+    color: var(--text);
     margin: 0;
-    color: whitesmoke;
-    background-color: rgba(9, 14, 17);
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-}
-
-.right {
-    width: 25%;
-    height: 100%;
-}
-
-.left {
-    width: 75%;
-    height: 100%;
-}
-
-.container {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 20px;
 }
 
-.books{
-    width: 200px;
-    height: 150px;
+header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border: solid 1px white;
-    color: black;
-    background-color: whitesmoke;
-    border-radius: 15px;
+    padding: 15px;
 }
 
-.books > button{
-    margin-top: 10px;
-    height: 25px;
-    width: 100px;
-    padding-top: 10px;
+
+.burger {
+    display: inline-block;
+    cursor: pointer;
+}
+  
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--text);
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--red);
+}
+  
+.change .bar1 {transform: translate(0, 11px) rotate(-45deg);}
+  
+.change .bar2 {opacity: 0;}
+  
+.change .bar3 {transform: translate(0, -11px) rotate(45deg);}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 38px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--text);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--text);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--text);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+}
+
+.slider.round {
+border-radius: 40px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+
+main{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
+    height: 600px;
+    width: 100%;
+    border-top: solid 2px var(--text);
 }
 
-label{
-    display: block;
+.nav{
+    width: 250px;
+    padding-left: 10px;
+    background-color: var(--color);
+}
+
+.nav1{
+    width: 100%;
+    height: 200px;
+}
+
+.nav2{
+    width: 100%;
+}
+
+.nav li{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color);
+}
+
+.newProjectForm{
+    display: flex;
 }
