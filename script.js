@@ -60,6 +60,7 @@ function showLibrary () {
       let index = e.target.dataset.library;
       myLibrary[index].read === 'unfinished' ? myLibrary[index].read = 'finished' : myLibrary[index].read = 'unfinished';
       showLibrary ()
+      console.log(myLibrary)
     })
 
     newbook.appendChild(bookButton);
